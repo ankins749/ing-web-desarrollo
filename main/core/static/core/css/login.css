@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* #datos {
+    /* border-style:dashed ;
+    border-color: red; */
+
+
+#datos form input[type="text"],
+#datos form input[type="email"],
+#datos form input[type="password"],
+#datos form input[type="number"] {
+    text-align: left;        
+}
+
+.cargar-foto {
+    width: 45%; 
+}
+
+.form-control {
+    width: 100%;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-group input[type="file"] {
+    flex: 1; 
+}
+
+.prod-1 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    border-style: dashed;
+    border-color: red;
+}
+
+.prod-2 {
+    width: 70%;
+}
+
+.boton-estilo {
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center; 
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 900px;
+}
+
+#miboton {
+    text-align: center;
+    border-style: dashed;
+    border-color: red;
+}
+
+

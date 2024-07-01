@@ -1,0 +1,66 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Arriendo de Bicicletas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #212529; /* Color de fondo */
+            color: #fff; /* Color de texto */
+            font-family: 'Lato', sans-serif; /* Fuente de texto */
+            padding: 50px; /* Espacio alrededor del contenido */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 1rem;
+            margin: 0.4rem 0;
+        }
+        input,
+        label {
+            margin: 0.4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Arriendo de Bicicletas</h2>
+        {% comment %} <form method="post" action="{% url 'guardar_datos' %}"> {% endcomment %}
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="fi">Fecha de inicio del arriendo:</label>
+                <input type="date" class="form-control" id="fi" name="fi">
+            </div>
+            <div class="form-group">
+                <label for="ff">Fecha de fin del arriendo:</label>
+                <input type="date" class="form-control" id="ff" name="ff">
+            </div>
+            <div class="form-group">
+                <label for="ti">Duración del arriendo (en días):</label>
+                <input type="number" class="form-control" id="ti" name="ti">
+            </div>
+            <div class="form-group">
+                <label for="inmu">Nombre del cliente:</label>
+                <input type="text" class="form-control" id="inmu" name="inmu" readonly value="{% if user.is_authenticated %}{{ user.username }}{% endif %}">
+            </div>
+            <div class="form-group">
+                <label for="inqu">Email del cliente:</label>
+                <input type="email" class="form-control" id="inqu" name="inqu" readonly value="{% if user.is_authenticated %}{{ user.email }}{% endif %}">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar datos</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+        </form>
+    </div>
+
+    <!-- Incluir Bootstrap JS y dependencias opcionales al final del documento para mejorar la carga -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

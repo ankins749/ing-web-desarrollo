@@ -1,0 +1,20 @@
+[
+    {
+        "nombre": "user",
+        "correo": "correo@example.com",
+        "contrasena": "user123",
+        "comuna": "Comuna del usuario",
+        "calle": "Calle del usuario",
+        "numero": "Número del usuario",
+        "rol": 0
+    },
+    {
+        "nombre": "admin",
+        "correo": "admin@example.com",
+        "contrasena": "admin123",
+        "comuna": "Comuna del administrador",
+        "calle": "Calle del administrador",
+        "numero": "Número del administrador",
+        "rol": 1
+    }
+]

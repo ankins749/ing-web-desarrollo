@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static "core/css/style.css" %}">
+	<link rel="icon" type="image/x-icon" href="{% static 'core/img/logo.png' %}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<title>Carrito de compras</title>
+</head>
+<body>
+	{% include "./navegacion.html" %}
+
+	<hr>
+	<div id="luces"></div>
+    <div class="modal fade" data-bs-backdrop="static" id="modalProcesandoCompra" tabindex="-1" aria-labelledby="modalProcesandoCompra" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="cajaModalProcesandoCompra">
+                <div class="modal-header" id="modalProcesandoCompraHeader"></div>
+                <div class="modal-body text-center" id="modalProcesandoCompraBody"></div>
+                <div class="modal-footer justify-content-center" id="modalProcesandoCompraFooter">
+					<button class="btn btn-success" data-bs-dismiss="modal" onclick="stopLuces(); window.location.href='{% url 'ingresartarjeta' %}'">Continuemos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<h1 id="textoCarritoCompras" style="text-align: center;">Carrito de compras</h1>
+
+	<br>
+
+	<div id="sinItemsEnCarrito" style="text-align: center; display: none;">
+		<h1>No hay ítems en el carrito de compras</h1>
+		<a href="{% url 'index' %}"><h2>Deberías comprar algunos aquí</h2></a>
+	</div>
+
+	<table id="tablaCarritoCompras" class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Nombre</th>
+				<th>Categoría</th>
+				<th>Precio</th>
+				<th>% Sub</th>
+				<th>% Oferta</th>
+				<th>% Dscto. total</th>
+				<th>Cantidad</th>
+				<th>Precio final</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<br>
+
+	<div style="display: flex; align-items: center; justify-content: center;">
+		<table id="tablaContenedorDatosTributarios" class="table" style="width: 50%;">
+			<thead>
+				<tr>
+					<th>Precio sin IVA</th>
+					<th>IVA (%)</th>
+					<th>Total a pagar</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+	<br>
+
+	<div id="contenedorBotones" style="display: none; text-align: center;">
+		<button id="btnLimpiarCarrito" class="btn btn-outline-danger mx-2" type="button" onclick="limpiarCarrito()">Vaciar carrito</button>
+		<button id="btnConfirmarCompra" class="btn btn-outline-success mx-2" type="button" onclick="procesarCompra()">Confirmar compra</button>
+	</div>
+
+	<hr>
+	
+	{% include "./footer.html" %}
+
+	<script src="/static/core/js/carrito_compras.js" type="module"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
